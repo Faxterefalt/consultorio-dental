@@ -1,5 +1,4 @@
 <?php
-// Configuración del sitio
 $siteName = "SANDENT";
 $phone = "73986206";
 $address = "Km 7.5 calle chacarrera sobre la avenida Sacaba-Guadalupe";

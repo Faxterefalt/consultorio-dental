@@ -1,5 +1,5 @@
 <?php
-// Detectar si estamos en un subdirectorio
+
 $isSubdir = strpos($_SERVER['PHP_SELF'], '/pages/') !== false;
 $baseUrl = $isSubdir ? '../' : './';
 ?>
