@@ -11,43 +11,43 @@ $servicios = [
         'nombre' => 'Ortodoncia',
         'descripcion' => 'Alineación dental y corrección de mordida con tratamientos modernos.',
         'icono' => 'fa-teeth',
-        'url' => 'ortodoncia.php'
+        'url' => './pages/ortodoncia.php'
     ],
     [
         'nombre' => 'Implantes Dentales',
         'descripcion' => 'Recupera tus piezas dentales perdidas con implantes seguros y duraderos.',
         'icono' => 'fa-tooth',
-        'url' => 'implantesdentales.php'
+        'url' => './pages/implantesdentales.php'
     ],
     [
         'nombre' => 'Cirugía de Terceros Molares',
         'descripcion' => 'Extracción profesional de muelas del juicio con mínima molestia.',
         'icono' => 'fa-syringe',
-        'url' => 'cirugia-terceros-molares.php'
+        'url' => './pages/cirugia-terceros-molares.php'
     ],
     [
         'nombre' => 'Prótesis Fija y Removible',
         'descripcion' => 'Soluciones estéticas y funcionales para reemplazar dientes perdidos.',
         'icono' => 'fa-teeth-open',
-        'url' => 'protesis.php'
+        'url' => './pages/protesis.php'
     ],
     [
         'nombre' => 'Odontopediatría',
         'descripcion' => 'Atención odontológica especializada para niños y adolescentes.',
         'icono' => 'fa-baby',
-        'url' => 'odontopediatria.php'
+        'url' => './pages/odontopediatria.php'
     ],
     [
         'nombre' => 'Endodoncia',
         'descripcion' => 'Tratamiento del nervio dental para conservar piezas naturales.',
         'icono' => 'fa-heartbeat',
-        'url' => 'endodoncia.php'
+        'url' => './pages/endodoncia.php'
     ],
     [
         'nombre' => 'Operatoria Dental',
         'descripcion' => 'Restauraciones estéticas y funcionales para dientes dañados por caries.',
         'icono' => 'fa-hand-holding-medical',
-        'url' => 'operatoria.php'
+        'url' => './pages/operatoria.php'
     ]
 ];
 

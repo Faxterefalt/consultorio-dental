@@ -1,5 +1,4 @@
 <?php
-
 // Configuración de la página
 $pageTitle = "Implantes Dentales";
 $siteName = "SANDENT";
@@ -32,7 +31,7 @@ $servicio = [
     ]
 ];
 
-include './header.php';
+include '../header.php';
 ?>
 
 <section class="servicio-detalle">
@@ -84,14 +83,14 @@ include './header.php';
         </p>
 
         <div class="servicio-acciones">
-            <a href="index.php#servicios" class="btn-volver">
+            <a href="../index.php#servicios" class="btn-volver">
                 <i class="fa-solid fa-arrow-left"></i> Volver a Servicios
             </a>
-            <a href="reservas.php" class="btn-reservar">
+            <a href="../reservas.php" class="btn-reservar">
                 <i class="fa-solid fa-calendar-check"></i> Reservar Cita
             </a>
         </div>
     </div>
 </section>
 
-<?php include './footer.php'; ?>
+<?php include '../footer.php'; ?>

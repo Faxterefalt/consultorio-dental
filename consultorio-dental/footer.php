@@ -1,39 +1,63 @@
-<footer class="footer">
-    <div class="container container-footer">
-        <div class="menu-footer">
-            <div class="contact-info">
-                <p class="title-footer">Información de Contacto</p>
-                <ul>
-                    <li><i class="fa-solid fa-location-dot"></i> <?php echo isset($address) ? $address : 'Km 7.5 calle chacarrera sobre la avenida Sacaba-Guadalupe'; ?></li>
-                    <li><i class="fa-solid fa-phone"></i> Teléfono: <?php echo isset($phone) ? $phone : '73986206'; ?></li>
-                    <li><i class="fa-solid fa-clock"></i> Horarios: <?php echo isset($horario) ? $horario : '8:30am - 4:00pm'; ?></li>
-                </ul>
-                <div class="social-icons">
-                    <span class="facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </span>
-                    <span class="instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </span>
+<?php
+// Detectar si estamos en un subdirectorio
+$isSubdir = strpos($_SERVER['PHP_SELF'], '/pages/') !== false;
+$baseUrl = $isSubdir ? '../' : './';
+?>
+    <footer class="footer">
+        <div class="container container-footer">
+            <div class="menu-footer">
+                <div class="contact-info">
+                    <p class="title-footer">Información de Contacto</p>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <?php echo $address; ?>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <?php echo $phone; ?>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-clock"></i>
+                            <?php echo $horario; ?>
+                        </li>
+                    </ul>
+
+                    <div class="social-icons">
+                        <span class="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                        <span class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="information">
+                    <p class="title-footer">Información</p>
+                    <ul>
+                        <li><a href="<?php echo $baseUrl; ?>index.php">Inicio</a></li>
+                        <li><a href="<?php echo $baseUrl; ?>index.php#servicios">Servicios</a></li>
+                        <li><a href="<?php echo $baseUrl; ?>index.php#horarios">Horarios</a></li>
+                        <li><a href="<?php echo $baseUrl; ?>reservas.php">Reservar Cita</a></li>
+                    </ul>
+                </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Nuestros Servicios</p>
+                    <ul>
+                        <li><a href="<?php echo $baseUrl; ?>pages/ortodoncia.php">Ortodoncia</a></li>
+                        <li><a href="<?php echo $baseUrl; ?>pages/implantesdentales.php">Implantes Dentales</a></li>
+                        <li><a href="#">Cirugía de Terceros Molares</a></li>
+                        <li><a href="#">Endodoncia</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="information">
-                <p class="title-footer">Enlaces Rápidos</p>
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="index.php#servicios">Servicios</a></li>
-                    <li><a href="reservas.php">Reservar Cita</a></li>
-                </ul>
+
+            <div class="copyright">
+                <p>© 2025 <?php echo $siteName; ?> - Todos los derechos reservados</p>
             </div>
         </div>
-
-        <div class="copyright">
-            <p>&copy; <?php echo date('Y'); ?> SANDENT - Todos los derechos reservados</p>
-        </div>
-    </div>
-</footer>
-
-<script src="./assets/js/main.js"></script>
+    </footer>
 </body>
 </html>
