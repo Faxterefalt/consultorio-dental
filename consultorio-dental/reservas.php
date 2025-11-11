@@ -98,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 $pageTitle = "Reservar Cita";
 $siteName = "SANDENT";
 $phone = "73986206";
+$address = "Km 7.5 calle chacarrera sobre la avenida Sacaba-Guadalupe";
+$horario = "8:30am - 4:00pm";
 
 include './header.php';
 ?>

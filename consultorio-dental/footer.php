@@ -43,15 +43,7 @@ $baseUrl = $isSubdir ? '../' : './';
                     </ul>
                 </div>
 
-                <div class="my-account">
-                    <p class="title-footer">Nuestros Servicios</p>
-                    <ul>
-                        <li><a href="<?php echo $baseUrl; ?>pages/ortodoncia.php">Ortodoncia</a></li>
-                        <li><a href="<?php echo $baseUrl; ?>pages/implantesdentales.php">Implantes Dentales</a></li>
-                        <li><a href="#">Cirugía de Terceros Molares</a></li>
-                        <li><a href="#">Endodoncia</a></li>
-                    </ul>
-                </div>
+
             </div>
 
             <div class="copyright">
