@@ -107,11 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const text = encodeURIComponent(
                         `*RESERVA DE CITA*\n\n` +
-                        `👤 *Nombre:* ${datosReserva.nombre}\n` +
-                        `📞 *Teléfono:* ${datosReserva.telefono}\n` +
-                        `🦷 *Servicio:* ${datosReserva.servicio}\n` +
-                        `📅 *Fecha:* ${fechaFormateada}\n` +
-                        `🕐 *Hora:* ${datosReserva.hora}\n\n` +
+                        `*Nombre:* ${datosReserva.nombre}\n` +
+                        `*Teléfono:* ${datosReserva.telefono}\n` +
+                        `*Servicio:* ${datosReserva.servicio}\n` +
+                        `*Fecha:* ${fechaFormateada}\n` +
+                        `*Hora:* ${datosReserva.hora}\n\n` +
                         `Quiero confirmar mi cita. ¡Gracias!`
                     );
 

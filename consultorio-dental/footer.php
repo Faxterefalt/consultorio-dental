@@ -47,7 +47,7 @@ $baseUrl = $isSubdir ? '../' : './';
             </div>
 
             <div class="copyright">
-                <p>© 2025 <?php echo $siteName; ?> - Todos los derechos reservados</p>
+                <p>© 2025 Jhannet Gallardo - Todos los derechos reservados</p>
             </div>
         </div>
     </footer>
