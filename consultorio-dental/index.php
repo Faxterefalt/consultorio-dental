@@ -17,7 +17,7 @@ $servicios = [
         'nombre' => 'Implantes Dentales',
         'descripcion' => 'Recupera tus piezas dentales perdidas con implantes seguros y duraderos.',
         'icono' => 'fa-tooth',
-        'url' => 'implantes-dentales.php'
+        'url' => 'implantesdentales.php'
     ],
     [
         'nombre' => 'Cirugía de Terceros Molares',
