@@ -1,4 +1,5 @@
 <?php
+
 $siteName = "SANDENT";
 $phone = "73986206";
 $address = "Km 7.5 calle chacarrera sobre la avenida Sacaba-Guadalupe";
@@ -74,11 +75,63 @@ $features = [
     ]
 ];
 
+// Imágenes de la galería
+$galeria = [
+    [
+        'imagen' => './assets/img/antesydespués.jpg',
+        'titulo' => 'Transformaciones Increíbles',
+        'descripcion' => 'Resultados que hablan por sí solos'
+    ],
+    [
+        'imagen' => './assets/img/consultorio-trabajo.jpg',
+        'titulo' => 'Profesionales en Acción',
+        'descripcion' => 'Precisión y cuidado en cada procedimiento'
+    ],
+    [
+        'imagen' => './assets/img/cuidado.jpg',
+        'titulo' => 'Tu Sonrisa Importa',
+        'descripcion' => 'Atención personalizada y profesional'
+    ],
+    [
+        'imagen' => './assets/img/estética.jpg',
+        'titulo' => 'Sonrisas Perfectas',
+        'descripcion' => 'Resultados naturales y hermosos'
+    ],
+    [
+        'imagen' => './assets/img/implantes.jpg',
+        'titulo' => 'Implantes Dentales',
+        'descripcion' => 'Tecnología de última generación'
+    ],
+    [
+        'imagen' => './assets/img/operatoria.jpg',
+        'titulo' => 'Equipo Profesional',
+        'descripcion' => 'Experiencia y dedicación'
+    ],
+    [
+        'imagen' => './assets/img/presentacion.png',
+        'titulo' => 'Nuestro Equipo',
+        'descripcion' => 'Comprometidos con tu salud dental'
+    ],
+    [
+        'imagen' => './assets/img/instalaciones.png',
+        'titulo' => 'Instalaciones Modernas',
+        'descripcion' => 'Comodidad y tecnología'
+    ]
+];
+
 // Incluir header
 include './header.php';
 ?>
 
+<!-- Agregar el CSS de la galería -->
+<link rel="stylesheet" href="./assets/css/gallery.css">
+
 <section class="banner">
+    <video class="banner-video" autoplay muted loop playsinline>
+        <source src="./assets/img/dentist.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+    <div class="banner-overlay"></div>
     <div class="content-banner">
         <p>Consultorio Odontológico</p>
         <h2><?php echo $siteName; ?> <br />Tu Sonrisa, Nuestra Pasión</h2>
@@ -171,7 +224,80 @@ include './header.php';
                 </div>
             </div>
         </div>
+
+        <!-- GALERÍA MODERNA -->
+        <div class="gallery-section">
+            <h2 class="heading-1">Nuestra Galería</h2>
+            <div class="gallery-container container">
+                <?php foreach ($galeria as $index => $foto): ?>
+                    <div class="gallery-item" onclick="openLightbox(<?php echo $index; ?>)">
+                        <img src="<?php echo $foto['imagen']; ?>" alt="<?php echo $foto['titulo']; ?>">
+                        <div class="gallery-icon">
+                            <i class="fa-solid fa-search-plus"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <h4><?php echo $foto['titulo']; ?></h4>
+                            <p><?php echo $foto['descripcion']; ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </section>
 </main>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    const galleryImages = <?php echo json_encode($galeria); ?>;
+    let currentImageIndex = 0;
+
+    function openLightbox(index) {
+        currentImageIndex = index;
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = galleryImages[index].imagen;
+        img.alt = galleryImages[index].titulo;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex < 0) {
+            currentImageIndex = galleryImages.length - 1;
+        } else if (currentImageIndex >= galleryImages.length) {
+            currentImageIndex = 0;
+        }
+        const img = document.getElementById('lightbox-img');
+        img.src = galleryImages[currentImageIndex].imagen;
+        img.alt = galleryImages[currentImageIndex].titulo;
+    }
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        } else if (event.key === 'ArrowLeft') {
+            changeImage(-1);
+        } else if (event.key === 'ArrowRight') {
+            changeImage(1);
+        }
+    });
+</script>
 
 <?php include './footer.php'; ?>
