@@ -43,61 +43,130 @@ $servicio = [
 include '../header.php';
 ?>
 
-<section class="servicio-detalle">
-    <div class="servicio-header">
-        <i class="fa-solid <?php echo $servicio['icono']; ?> servicio-icon"></i>
-        <h1><?php echo $servicio['titulo']; ?></h1>
-        <p class="subtitulo"><?php echo $servicio['subtitulo']; ?></p>
-    </div>
+<!-- Agregar CSS específico -->
+<link rel="stylesheet" href="../assets/css/ortodoncia.css">
 
-    <div class="servicio-contenido">
-        <p class="intro"><?php echo $servicio['descripcion']; ?></p>
-
-        <h2>¿Qué es la Ortodoncia?</h2>
-        <p>
-            Es la especialidad odontológica encargada de alinear los dientes y corregir las alteraciones 
-            de la mordida. Mediante el uso de brackets o alineadores invisibles, logramos una sonrisa 
-            armónica y una mejor salud bucodental.
-        </p>
-
-        <h2>Tipos de Tratamientos</h2>
-        <ul>
-            <?php foreach ($servicio['tipos'] as $tipo): ?>
-                <li>
-                    <strong><?php echo $tipo['nombre']; ?>:</strong> 
-                    <?php echo $tipo['descripcion']; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Beneficios</h2>
-        <ul>
-            <?php foreach ($servicio['beneficios'] as $beneficio): ?>
-                <li><?php echo $beneficio; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Cuidados Durante el Tratamiento</h2>
-        <ul>
-            <?php foreach ($servicio['cuidados'] as $cuidado): ?>
-                <li><?php echo $cuidado; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <p class="conclusion">
-            Nuestro equipo profesional te acompañará durante todo el proceso, garantizando 
-            un tratamiento personalizado que se adapte a tus necesidades y estilo de vida.
-        </p>
-
-        <div class="servicio-acciones">
-            <a href="../index.php#servicios" class="btn-volver">
-                <i class="fa-solid fa-arrow-left"></i> Volver a Servicios
-            </a>
-            <a href="../reservas.php" class="btn-reservar">
-                <i class="fa-solid fa-calendar-check"></i> Reservar Cita
-            </a>
+<div class="ortodoncia-page">
+    <!-- HERO SECTION -->
+    <section class="ortodoncia-hero">
+        <div class="container hero-content">
+            <i class="fa-solid fa-teeth hero-icon"></i>
+            <h1><?php echo $servicio['titulo']; ?></h1>
+            <p class="hero-subtitle"><?php echo $servicio['subtitulo']; ?></p>
+            <p class="hero-description"><?php echo $servicio['descripcion']; ?></p>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- INTRODUCCIÓN CON IMAGEN -->
+    <section class="intro-section">
+        <div class="intro-grid">
+            <div class="intro-image">
+                <i class="fa-solid fa-teeth-open"></i>
+            </div>
+            <div class="intro-text">
+                <h2>¿Qué es la Ortodoncia?</h2>
+                <p>
+                    Es la especialidad odontológica encargada de alinear los dientes y corregir las alteraciones 
+                    de la mordida. Mediante el uso de brackets o alineadores invisibles, logramos una sonrisa 
+                    armónica y una mejor salud bucodental.
+                </p>
+                <p>
+                    Nuestros tratamientos ortodónticos están diseñados específicamente para cada paciente, 
+                    utilizando tecnología de vanguardia y técnicas probadas que garantizan resultados 
+                    excepcionales en el menor tiempo posible.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPOS DE TRATAMIENTOS -->
+    <section class="tipos-section">
+        <h2 class="section-title">Tipos de Tratamientos</h2>
+        <p class="section-description">
+            Contamos con diferentes opciones de tratamiento adaptadas a tus necesidades, 
+            estilo de vida y presupuesto.
+        </p>
+        
+        <div class="tipos-grid">
+            <?php 
+            $iconos = ['fa-teeth', 'fa-gem', 'fa-eye-slash'];
+            foreach ($servicio['tipos'] as $index => $tipo): 
+            ?>
+                <div class="tipo-card">
+                    <div class="tipo-icon">
+                        <i class="fa-solid <?php echo $iconos[$index]; ?>"></i>
+                    </div>
+                    <h3><?php echo $tipo['nombre']; ?></h3>
+                    <p><?php echo $tipo['descripcion']; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios-section">
+        <h2 class="section-title">Beneficios del Tratamiento</h2>
+        <p class="section-description">
+            La ortodoncia no solo mejora tu apariencia, también tiene múltiples beneficios 
+            para tu salud bucal y general.
+        </p>
+        
+        <div class="beneficios-grid">
+            <?php 
+            $iconos_beneficios = ['fa-smile', 'fa-spray-can-sparkles', 'fa-comment-medical', 'fa-shield-heart'];
+            foreach ($servicio['beneficios'] as $index => $beneficio): 
+            ?>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fa-solid <?php echo $iconos_beneficios[$index]; ?>"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <p><?php echo $beneficio; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- CUIDADOS DURANTE EL TRATAMIENTO -->
+    <section class="cuidados-section">
+        <h2 class="section-title">Cuidados Durante el Tratamiento</h2>
+        <p class="section-description">
+            Para garantizar el éxito de tu tratamiento ortodóntico, es importante seguir 
+            estas recomendaciones:
+        </p>
+        
+        <div class="cuidados-timeline">
+            <?php 
+            $iconos_cuidados = ['fa-utensils', 'fa-tooth', 'fa-calendar-check', 'fa-ring'];
+            foreach ($servicio['cuidados'] as $index => $cuidado): 
+            ?>
+                <div class="cuidado-item">
+                    <i class="fa-solid <?php echo $iconos_cuidados[$index]; ?>"></i>
+                    <p><?php echo $cuidado; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para transformar tu sonrisa?</h2>
+            <p>
+                Nuestro equipo profesional te acompañará durante todo el proceso, garantizando 
+                un tratamiento personalizado que se adapte a tus necesidades y estilo de vida.
+            </p>
+            <div class="cta-buttons">
+                <a href="../reservas.php" class="btn-cta btn-primary">
+                    <i class="fa-solid fa-calendar-check"></i> Reservar Cita
+                </a>
+                <a href="../index.php#servicios" class="btn-cta btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Ver Más Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
 <?php include '../footer.php'; ?>

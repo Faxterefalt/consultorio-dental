@@ -48,73 +48,147 @@ $servicio = [
 include '../header.php';
 ?>
 
-<section class="servicio-detalle">
-    <div class="servicio-header">
-        <i class="fa-solid <?php echo $servicio['icono']; ?> servicio-icon"></i>
-        <h1><?php echo $servicio['titulo']; ?></h1>
-        <p class="subtitulo"><?php echo $servicio['subtitulo']; ?></p>
-    </div>
+<!-- Agregar CSS específico -->
+<link rel="stylesheet" href="../assets/css/cirugia-molares.css">
 
-    <div class="servicio-contenido">
-        <p class="intro"><?php echo $servicio['descripcion']; ?></p>
-
-        <h2>¿Qué son los Terceros Molares?</h2>
-        <p>
-            Los terceros molares, comúnmente conocidos como "muelas del juicio", son los últimos dientes 
-            en erupcionar, generalmente entre los 17 y 25 años de edad. En muchos casos, no tienen suficiente 
-            espacio para desarrollarse correctamente, lo que puede causar dolor, infecciones y otros problemas 
-            dentales que requieren su extracción.
-        </p>
-
-        <h2>¿Cuándo es Necesaria la Extracción?</h2>
-        <ul>
-            <?php foreach ($servicio['cuando_necesario'] as $razon): ?>
-                <li><?php echo $razon; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Beneficios de la Cirugía</h2>
-        <ul>
-            <?php foreach ($servicio['beneficios'] as $beneficio): ?>
-                <li><?php echo $beneficio; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Procedimiento en SANDENT</h2>
-        <p>
-            En <strong>SANDENT</strong> realizamos la cirugía de terceros molares en un ambiente seguro 
-            y con equipamiento especializado. Nuestro protocolo incluye:
-        </p>
-        <ul>
-            <?php foreach ($servicio['procedimiento'] as $paso): ?>
-                <li><?php echo $paso; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Cuidados Postoperatorios</h2>
-        <ul>
-            <?php foreach ($servicio['cuidados'] as $cuidado): ?>
-                <li><?php echo $cuidado; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Resultados Esperados</h2>
-        <p class="conclusion">
-            La mayoría de los pacientes experimenta una recuperación completa en 7 a 10 días. 
-            En <strong>SANDENT</strong> trabajamos con dedicación, precisión y empatía para garantizar 
-            un procedimiento exitoso que preserve tu salud bucal y mejore tu calidad de vida. 
-            Nuestro equipo te acompañará en todo el proceso de recuperación.
-        </p>
-
-        <div class="servicio-acciones">
-            <a href="../index.php#servicios" class="btn-volver">
-                <i class="fa-solid fa-arrow-left"></i> Volver a Servicios
-            </a>
-            <a href="../reservas.php" class="btn-reservar">
-                <i class="fa-solid fa-calendar-check"></i> Reservar Cita
-            </a>
+<div class="cirugia-page">
+    <!-- HERO SECTION -->
+    <section class="cirugia-hero">
+        <div class="container hero-content">
+            <i class="fa-solid fa-syringe hero-icon"></i>
+            <h1><?php echo $servicio['titulo']; ?></h1>
+            <p class="hero-subtitle"><?php echo $servicio['subtitulo']; ?></p>
+            <p class="hero-description"><?php echo $servicio['descripcion']; ?></p>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="intro-section">
+        <div class="intro-grid">
+            <div class="intro-image">
+                <i class="fa-solid fa-teeth-open"></i>
+            </div>
+            <div class="intro-text">
+                <h2>¿Qué son los Terceros Molares?</h2>
+                <p>
+                    Los terceros molares, comúnmente conocidos como "muelas del juicio", son los últimos dientes 
+                    en erupcionar, generalmente entre los 17 y 25 años de edad. En muchos casos, no tienen suficiente 
+                    espacio para desarrollarse correctamente, lo que puede causar dolor, infecciones y otros problemas 
+                    dentales que requieren su extracción.
+                </p>
+                <p>
+                    En SANDENT contamos con profesionales altamente capacitados y tecnología moderna 
+                    para realizar este procedimiento de forma segura y con mínimas molestias.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUANDO ES NECESARIO -->
+    <section class="necesario-section">
+        <h2 class="section-title">¿Cuándo es Necesaria la Extracción?</h2>
+        <p class="section-description">
+            Existen varias situaciones que hacen necesaria la extracción de los terceros molares:
+        </p>
+        
+        <div class="necesario-grid">
+            <?php 
+            $iconos_necesario = ['fa-face-grimace', 'fa-tooth', 'fa-virus', 'fa-bacteria', 'fa-compress'];
+            foreach ($servicio['cuando_necesario'] as $index => $razon): 
+            ?>
+                <div class="necesario-card">
+                    <div class="necesario-icon">
+                        <i class="fa-solid <?php echo $iconos_necesario[$index]; ?>"></i>
+                    </div>
+                    <p><?php echo $razon; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios-section">
+        <h2 class="section-title">Beneficios de la Cirugía</h2>
+        <p class="section-description">
+            La extracción de terceros molares previene problemas futuros y mejora tu salud bucal:
+        </p>
+        
+        <div class="beneficios-list">
+            <?php 
+            $iconos_beneficios = ['fa-shield-virus', 'fa-tooth', 'fa-teeth', 'fa-head-side-virus', 'fa-clock-rotate-left'];
+            foreach ($servicio['beneficios'] as $index => $beneficio): 
+            ?>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fa-solid <?php echo $iconos_beneficios[$index]; ?>"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <p><?php echo $beneficio; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- PROCEDIMIENTO -->
+    <section class="procedimiento-section">
+        <h2 class="section-title">Procedimiento en SANDENT</h2>
+        <p class="section-description">
+            En SANDENT realizamos la cirugía en un ambiente seguro con equipamiento especializado:
+        </p>
+        
+        <div class="procedimiento-steps">
+            <?php foreach ($servicio['procedimiento'] as $paso): ?>
+                <div class="proc-step">
+                    <p><?php echo $paso; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- CUIDADOS -->
+    <section class="cuidados-section">
+        <h2 class="section-title">Cuidados Postoperatorios</h2>
+        <p class="section-description">
+            Sigue estas recomendaciones para una recuperación rápida y sin complicaciones:
+        </p>
+        
+        <div class="cuidados-grid">
+            <?php 
+            $iconos_cuidados = ['fa-snowflake', 'fa-utensils', 'fa-face-rolling-eyes', 'fa-pills', 'fa-tooth', 'fa-smoking-ban', 'fa-calendar-check'];
+            foreach ($servicio['cuidados'] as $index => $cuidado): 
+            ?>
+                <div class="cuidado-item">
+                    <div class="cuidado-icon">
+                        <i class="fa-solid <?php echo $iconos_cuidados[$index]; ?>"></i>
+                    </div>
+                    <div class="cuidado-text">
+                        <p><?php echo $cuidado; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Necesitas extraer tus muelas del juicio?</h2>
+            <p>
+                La mayoría de los pacientes experimenta una recuperación completa en 7 a 10 días. 
+                En SANDENT trabajamos con dedicación, precisión y empatía para garantizar 
+                un procedimiento exitoso que preserve tu salud bucal.
+            </p>
+            <div class="cta-buttons">
+                <a href="../reservas.php" class="btn-cta btn-primary">
+                    <i class="fa-solid fa-calendar-check"></i> Reservar Cita
+                </a>
+                <a href="../index.php#servicios" class="btn-cta btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Ver Más Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
 <?php include '../footer.php'; ?>

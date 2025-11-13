@@ -456,6 +456,8 @@ body {
 /* ================================== */
 /*     PÁGINA DE SERVICIO DETALLE     */
 /* ================================== */
+/* NOTA: Estilos movidos a archivos CSS específicos por servicio */
+
 .servicio-detalle {
     max-width: 100rem;
     margin: 10rem auto 5rem;

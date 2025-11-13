@@ -37,58 +37,116 @@ $servicio = [
 include '../header.php';
 ?>
 
-<section class="servicio-detalle">
-    <div class="servicio-header">
-        <i class="fa-solid <?php echo $servicio['icono']; ?> servicio-icon"></i>
-        <h1><?php echo $servicio['titulo']; ?></h1>
-        <p class="subtitulo"><?php echo $servicio['subtitulo']; ?></p>
-    </div>
+<link rel="stylesheet" href="../assets/css/odontopediatria.css">
 
-    <div class="servicio-contenido">
-        <p class="intro"><?php echo $servicio['descripcion']; ?></p>
-
-        <h2>¿Qué es la Odontopediatría?</h2>
-        <p>
-            Es la rama de la odontología encargada de cuidar la salud oral de los niños desde su 
-            nacimiento hasta la adolescencia. Incluye tratamientos preventivos, restaurativos y 
-            educativos para fomentar hábitos saludables y evitar problemas futuros.
-        </p>
-
-        <h2>Importancia de la Atención Temprana</h2>
-        <ul>
-            <?php foreach ($servicio['importancia'] as $punto): ?>
-                <li><?php echo $punto; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Servicios Odontopediátricos en SANDENT</h2>
-        <ul>
-            <?php foreach ($servicio['servicios'] as $servicio_item): ?>
-                <li><?php echo $servicio_item; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <h2>Recomendaciones para Padres</h2>
-        <ul>
-            <?php foreach ($servicio['recomendaciones'] as $recomendacion): ?>
-                <li><?php echo $recomendacion; ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <p class="conclusion">
-            En <strong>SANDENT</strong> trabajamos con paciencia, empatía y profesionalismo, 
-            asegurando que cada niño viva una experiencia dental positiva y educativa.
-        </p>
-
-        <div class="servicio-acciones">
-            <a href="../index.php#servicios" class="btn-volver">
-                <i class="fa-solid fa-arrow-left"></i> Volver a Servicios
-            </a>
-            <a href="../reservas.php" class="btn-reservar">
-                <i class="fa-solid fa-calendar-check"></i> Reservar Cita
-            </a>
+<div class="odontopediatria-page">
+    <section class="odontopediatria-hero">
+        <div class="container hero-content">
+            <i class="fa-solid fa-baby hero-icon"></i>
+            <h1><?php echo $servicio['titulo']; ?></h1>
+            <p class="hero-subtitle"><?php echo $servicio['subtitulo']; ?></p>
+            <p class="hero-description"><?php echo $servicio['descripcion']; ?></p>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="intro-section">
+        <div class="intro-grid">
+            <div class="intro-image">
+                <i class="fa-solid fa-child-reaching"></i>
+            </div>
+            <div class="intro-text">
+                <h2>¿Qué es la Odontopediatría?</h2>
+                <p>
+                    Es la rama de la odontología encargada de cuidar la salud oral de los niños desde su 
+                    nacimiento hasta la adolescencia. Incluye tratamientos preventivos, restaurativos y 
+                    educativos para fomentar hábitos saludables y evitar problemas futuros.
+                </p>
+                <p>
+                    En SANDENT creamos un ambiente divertido y seguro donde los niños se sienten cómodos 
+                    y aprenden a cuidar sus dientes desde pequeños.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="importancia-section">
+        <h2 class="section-title">Importancia de la Atención Temprana</h2>
+        <p class="section-description">
+            Cuidar la salud dental desde la infancia previene problemas futuros y establece 
+            buenos hábitos para toda la vida.
+        </p>
+        
+        <div class="importancia-grid">
+            <?php 
+            $iconos_importancia = ['fa-shield-virus', 'fa-eye', 'fa-hands-bubbles', 'fa-face-smile'];
+            foreach ($servicio['importancia'] as $index => $punto): 
+            ?>
+                <div class="importancia-card">
+                    <div class="importancia-icon">
+                        <i class="fa-solid <?php echo $iconos_importancia[$index]; ?>"></i>
+                    </div>
+                    <p><?php echo $punto; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section class="servicios-section">
+        <h2 class="section-title">Servicios Odontopediátricos</h2>
+        <p class="section-description">
+            Tratamientos especializados diseñados para el cuidado dental infantil:
+        </p>
+        
+        <div class="servicios-list">
+            <?php 
+            $iconos_servicios = ['fa-shield-halved', 'fa-spray-can-sparkles', 'fa-tooth', 'fa-virus-slash', 'fa-graduation-cap'];
+            foreach ($servicio['servicios'] as $index => $servicio_item): 
+            ?>
+                <div class="servicio-item">
+                    <div class="servicio-icon">
+                        <i class="fa-solid <?php echo $iconos_servicios[$index]; ?>"></i>
+                    </div>
+                    <div class="servicio-text">
+                        <p><?php echo $servicio_item; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section class="recomendaciones-section">
+        <h2 class="section-title">Recomendaciones para Padres</h2>
+        <p class="section-description">
+            Consejos importantes para el cuidado dental de tus hijos:
+        </p>
+        
+        <div class="recomendaciones-grid">
+            <?php foreach ($servicio['recomendaciones'] as $index => $recomendacion): ?>
+                <div class="recomendacion-card">
+                    <div class="recomendacion-number"><?php echo $index + 1; ?></div>
+                    <p><?php echo $recomendacion; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¡Cuida la sonrisa de tus hijos desde pequeños!</h2>
+            <p>
+                En SANDENT trabajamos con paciencia, empatía y profesionalismo, 
+                asegurando que cada niño viva una experiencia dental positiva y educativa.
+            </p>
+            <div class="cta-buttons">
+                <a href="../reservas.php" class="btn-cta btn-primary">
+                    <i class="fa-solid fa-calendar-check"></i> Reservar Cita
+                </a>
+                <a href="../index.php#servicios" class="btn-cta btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Ver Más Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
 <?php include '../footer.php'; ?>
